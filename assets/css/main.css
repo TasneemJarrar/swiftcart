@@ -1,0 +1,73 @@
+:root {
+  --deep-emerald: #064e3b;
+  --soft-emerald: #ecfdf5;
+  --stone-white: #fafaf9;
+  --ink-black: #1c1917;
+  --main-font: "Bricolage Grotesque", sans-serif;
+  --sub-font: "Plus Jakarta Sans", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--sub-font);
+}
+body::selection {
+  background-color: var(--deep-emerald);
+}
+h1,
+h2.h3 {
+  font-family: var(--main-font);
+}
+.main-font {
+  font-family: var(--main-font);
+}
+.sub-font {
+  font-family: var(--sub-font);
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.btn-emeraled {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #064e3b;
+  --bs-btn-border-color: #064e3b;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #053f30;
+  --bs-btn-hover-border-color: #05362a;
+  --bs-btn-focus-shadow-rgb: 6, 78, 59;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #043328;
+  --bs-btn-active-border-color: #042b22;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+  --bs-btn-disabled-color: #ffffff;
+  --bs-btn-disabled-bg: #064e3b;
+  --bs-btn-disabled-border-color: #064e3b;
+}
+body{
+  background-color: #042b22;
+  height: 5000px;
+}
+/* navbar strat */
+.navbar .container {
+  background-color: #fafaf982;
+  border: #ecfdf5 1px solid;
+  box-shadow: 0 10px 30px rgba(236, 253, 245, 0.6),
+    0 4px 10px rgba(236, 253, 245, 0.4);
+}
+.navbar .logo{
+  width: 40px;
+  height: 40px;
+  background-color: var(--deep-emerald);
+}
