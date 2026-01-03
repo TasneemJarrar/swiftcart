@@ -1,8 +1,9 @@
 :root {
   --deep-emerald: #064e3b;
   --soft-emerald: #ecfdf5;
-  --stone-white: #fafaf9;
-  --ink-black: #1c1917;
+  --base-surface: #fafaf9;
+  --Primary-text: #1c1917;
+  --muted: #6c757d;
   --main-font: "Bricolage Grotesque", sans-serif;
   --sub-font: "Plus Jakarta Sans", sans-serif;
 }
@@ -12,11 +13,16 @@
   box-sizing: border-box;
   font-family: var(--sub-font);
 }
+body {
+  background-color: var(--base-surface);
+  color: var(--Primary-text);
+}
 body::selection {
   background-color: var(--deep-emerald);
+  color: #fff;
 }
 h1,
-h2.h3 {
+h2,h3 {
   font-family: var(--main-font);
 }
 .main-font {
@@ -39,6 +45,9 @@ label {
 a {
   text-decoration: none;
 }
+.fs-14 {
+  font-size: 14px;
+}
 .btn-emeraled {
   --bs-btn-color: #ffffff;
   --bs-btn-bg: #064e3b;
@@ -55,19 +64,139 @@ a {
   --bs-btn-disabled-bg: #064e3b;
   --bs-btn-disabled-border-color: #064e3b;
 }
-body{
-  background-color: #042b22;
-  height: 5000px;
+.btn-white {
+  --bs-btn-color: #064e3b;
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #e7e5e4;
+  --bs-btn-hover-color: #064e3b;
+  --bs-btn-hover-bg: #ecfdf5;
+  --bs-btn-hover-border-color: #064e3b;
+  --bs-btn-focus-shadow-rgb: 255, 255, 255;
+  --bs-btn-active-color: #064e3b;
+  --bs-btn-active-bg: #e6f7ef;
+  --bs-btn-active-border-color: #064e3b;
+  --bs-btn-active-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+  --bs-btn-disabled-color: #9ca3af;
+  --bs-btn-disabled-bg: #ffffff;
+  --bs-btn-disabled-border-color: #e7e5e4;
+}
+.emerald-badge {
+  font-size: 12px;
+  color: var(--deep-emerald);
+  background-color: var(--soft-emerald);
+  border-radius: 24px;
+  padding: 4px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.white-badge {
+  font-size: 10px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 2px 4px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  border: 1px solid #eee;
+}
+.color-emerald{
+  color: var(--deep-emerald);
 }
 /* navbar strat */
 .navbar .container {
-  background-color: #fafaf982;
-  border: #ecfdf5 1px solid;
-  box-shadow: 0 10px 30px rgba(236, 253, 245, 0.6),
-    0 4px 10px rgba(236, 253, 245, 0.4);
+  background-color: #ffffffcc;
+  backdrop-filter: blur(24px);
+  border: 1px solid #e7e5e480;
+  box-shadow: 0 10px 15px rgba(231, 229, 228, 0.4);
 }
-.navbar .logo{
+.navbar .logo {
   width: 40px;
   height: 40px;
   background-color: var(--deep-emerald);
+}
+/* navbar end */
+/* hero start */
+.hero .main-content {
+  background-color: var(--deep-emerald);
+}
+.hero .main-content h1 {
+  font-size: 6rem;
+  line-height: 6rem;
+}
+.hero .main-content h1 span {
+  color: #6ee7b7;
+}
+.hero .main-content p {
+  color: #d1fae5;
+}
+.hero .bestsellers {
+  height: 200px;
+}
+.hero .bestsellers .bestSellers-image {
+  position: absolute;
+  top: 0;
+  filter: grayscale(1);
+  transition: all 0.3s;
+  z-index: 0;
+}
+
+.hero .bestsellers:hover .bestSellers-image {
+  filter: grayscale(0);
+  transform: scale(1.02);
+}
+.hero .bestsellers p {
+  z-index: 1;
+  bottom: 20px;
+  left: 25px;
+}
+.category-bar .swiper{
+  height: 50px;
+}
+.swiper-slide {
+  width: auto; 
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: var(--base-surface);
+  background-color: var(--deep-emerald);
+  border-color: var(--deep-emerald);
+  box-shadow: 0 10px 25px #064e3b4e;
+}
+.nav-link:hover{
+  color: var(--Primary-text);
+  border: 1px solid var(--Primary-text);
+}
+.nav-link{
+  color: var(--muted);
+  border: 1px solid var(--muted);
+}
+.nav-tabs {
+  --bs-nav-tabs-border-radius: var(--bs-border-radius);
+  --bs-nav-tabs-link-hover-border-color: var(--Primary-text);
+  --bs-nav-tabs-link-active-color: var(--bs-emphasis-color);
+  --bs-nav-tabs-link-active-bg: var(--bs-body-bg);
+  --bs-nav-tabs-link-active-border-color: var(--bs-border-color) var(--bs-border-color) var(--bs-body-bg);
+  border-bottom: none;
+}
+.swiper-scrollbar {
+  &.swiper-scrollbar-horizontal, .swiper-horizontal>& {
+    top: 48px;
+  }
+}
+.products .product-card .product-image{
+  background-color: var(--base-surface);
+}
+.products .product-card .product-image .white-badge{
+  top: 10px;
+  right: 10px;
+}
+.products .product-card,.products .product-card .product-image img{
+  transition: all 0.3s ease;
+
+}
+.products .product-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.products .product-card:hover .product-image img{
+  transform: scale(1.05);
 }
