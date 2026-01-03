@@ -2,6 +2,7 @@ const getProducts = async () => {
   const response = await axios.get(`https://dummyjson.com/products`);
   return response.data;
 };
+
 // display Bestsellers
 displayBestsellers = async () => {
   const result = await getProducts();
@@ -13,6 +14,7 @@ displayBestsellers = async () => {
   `;
 };
 displayBestsellers();
+
 // categories swiper
 const swiper = new Swiper(".swiper", {
   slidesPerView: "auto",
@@ -50,24 +52,27 @@ displayCatigories = async () => {
 };
 
 // display all products
-const displayallproducts = async () => {
-    const result = await getProducts();
+const displayallproducts = async () => {  
+  const result = await getProducts();
+  const numberOfPages = Math.ceil(result.total / 10);
+
+  console.log(numberOfPages);
   const allproducts = result.products.map(product => {
     return `
       <div class="col-md-3">
-    <div class="product-card card p-4 card rounded-5 mt-4 d-flex gap-3">
-      <div class="product-image p-3 rounded-4 position-relative" >
-        <span class="white-badge position-absolute">⭐${product.rating}</span>
-        <img src="${product.thumbnail}" alt="${product.title}" class="w-auto" height="200px">
-      </div>
-      <div p class="product-info">
-        <p class="main-font color-emerald opacity-50 text-uppercase fs-14">${product.category}</p>
-        <p class="main-font fw-medium">${product.title}</p>
-      </div>
+        <a href="./details.html?id=${product.id}" class="product-card card p-4 card rounded-5 mt-4 d-flex gap-3 ">
+          <div class="product-image p-3 rounded-4 position-relative d-flex justify-content-center" >
+            <span class="white-badge position-absolute">⭐${product.rating}</span>
+            <img src="${product.thumbnail}" alt="${product.title}" class="w-auto" height="200px">
+          </div>
+          <div p class="product-info">
+            <p class="main-font color-emerald opacity-50 text-uppercase fs-14">${product.category}</p>
+            <p class="main-font fw-medium">${product.title}</p>
+          </div>
 
-      <span p class="main-font fw-medium">$${product.price}</span>
-    </div>
-  </div>
+          <span p class="main-font fw-medium">$${product.price}</span>
+        </a>
+      </div>
     `;
   }).join('');
 
@@ -92,11 +97,18 @@ const displaybyCategory = (products, category) => {
   const productsbycategory = products.map(product => {
     return `
       <div class="col-md-3">
-        <div class="product-card card p-4">
-          <img src="${product.thumbnail}" alt="${product.title}">
-          <p>${product.title}</p>
-          <span>$${product.price}</span>
-        </div>
+        <a href="./details.html?id=${product.id}" class="product-card card p-4 card rounded-5 mt-4 d-flex gap-3 ">
+          <div class="product-image p-3 rounded-4 position-relative d-flex justify-content-center" >
+            <span class="white-badge position-absolute">⭐${product.rating}</span>
+            <img src="${product.thumbnail}" alt="${product.title}" class="w-auto" height="200px">
+          </div>
+          <div p class="product-info">
+            <p class="main-font color-emerald opacity-50 text-uppercase fs-14">${product.category}</p>
+            <p class="main-font fw-medium">${product.title}</p>
+          </div>
+
+          <span p class="main-font fw-medium">$${product.price}</span>
+        </a>
       </div>
     `;
   }).join('');

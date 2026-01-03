@@ -200,3 +200,14 @@ a {
 .products .product-card:hover .product-image img{
   transform: scale(1.05);
 }
+
+.product .product-images .swiper-slide{
+  background-color: var(--base-surface);
+}
+
+.swiper-horizontal {
+  &.swiper-rtl .swiper-button-next, &.swiper-rtl~.swiper-button-next, &~.swiper-button-prev, .swiper-button-prev svg path,
+    &.swiper-rtl .swiper-button-prev, &.swiper-rtl~.swiper-button-prev, &~.swiper-button-next, .swiper-button-next svg path {
+    fill: var(--muted);
+  }
+}
